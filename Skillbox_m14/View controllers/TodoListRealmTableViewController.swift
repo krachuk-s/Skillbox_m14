@@ -11,6 +11,7 @@ import UIKit
 class TodoListRealmTableViewController: UITableViewController {
 
     var todoListController = TodoListsController()
+    var editingRow: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,9 @@ class TodoListRealmTableViewController: UITableViewController {
         todoListController.append(newList)
         
     }
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+    }
     
     // MARK: - Table view data source
 
@@ -59,6 +63,9 @@ class TodoListRealmTableViewController: UITableViewController {
         cell.textLabel?.text = todoListController.results[indexPath.row].name
         cell.detailTextLabel?.text = "todos: \(todoListController.results[indexPath.row].todoItems.count)"
         cell.textLabel?.textColor = todoListController.results[indexPath.row].color
+    
+        cell.accessoryType = .disclosureIndicator
+        cell.editingAccessoryType = .detailButton
         
         return cell
     }
@@ -94,6 +101,16 @@ class TodoListRealmTableViewController: UITableViewController {
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)!
             
             vc.todoList = todoListController.results[indexPath.row]
+         
+        case "EditTodoListSegue":
+            
+            let vc = (segue.destination as! UINavigationController).topViewController as! TodoListEditRealmViewController
+            let indexPath = tableView.indexPath(for: sender as! UITableViewCell)!
+            
+            vc.name = todoListController.results[indexPath.row].name
+            vc.color = todoListController.results[indexPath.row].color
+            
+            editingRow = indexPath
             
         default:
             break
@@ -105,12 +122,20 @@ class TodoListRealmTableViewController: UITableViewController {
         
         if segue.identifier == "TodoListDoneEditing", let vc = segue.source as? TodoListEditRealmViewController {
          
-            let newList = TodoList()
-            newList.name = vc.name
-            newList.color = vc.color
-            todoListController.append(newList)
-            
+            if let editingRow = editingRow {
+                
+                todoListController.update(at: editingRow.row, withName: vc.name, color: vc.color)
+                
+            } else {
+                let newList = TodoList()
+                newList.name = vc.name
+                newList.color = vc.color
+                todoListController.append(newList)
+            }
         }
+        
+        editingRow = nil
+        
     }
     
     

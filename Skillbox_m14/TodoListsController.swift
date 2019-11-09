@@ -82,6 +82,15 @@ class TodoListsController {
         }
     }
     
+    func update(at index: Int, withName name: String, color: UIColor) {
+        try! realm.write {
+            
+            results[index].name = name
+            results[index].color = color
+            
+        }
+    }
+    
 }
 
 protocol TodoListControllerDelegate {

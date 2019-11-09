@@ -82,7 +82,7 @@ class TodoItemsRealmTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = todoList?.todoItems[indexPath.row].todo
 
         return cell
     }

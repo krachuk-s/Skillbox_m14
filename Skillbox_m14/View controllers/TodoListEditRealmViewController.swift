@@ -18,7 +18,7 @@ class TodoListEditRealmViewController: UIViewController {
     var name: String = ""
     var color: UIColor = .systemGreen {
         didSet {
-            colorView.backgroundColor = color
+            colorView?.backgroundColor = color
         }
     }
     

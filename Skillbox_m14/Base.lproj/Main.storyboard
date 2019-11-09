@@ -88,6 +88,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="pzy-2H-3xL" kind="showDetail" identifier="ShowTodoItems" id="Bzg-jM-w3e"/>
+                                    <segue destination="fGG-vL-bMI" kind="presentation" identifier="EditTodoListSegue" trigger="accessoryAction" id="Bxv-sy-Blh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -97,6 +98,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Lists" id="TYt-jj-AvN">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="8ez-ug-hNt">
+                            <connections>
+                                <action selector="editButtonPressed:" destination="Vlj-gr-baa" id="PW7-bf-rnn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZcO-EN-dMa">
                             <connections>
                                 <segue destination="fGG-vL-bMI" kind="presentation" id="jcv-Jw-Xey"/>
@@ -255,12 +261,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoItemCell" id="QTe-30-nbZ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoItemCell" textLabel="AoP-34-tha" style="IBUITableViewCellStyleDefault" id="QTe-30-nbZ">
                                 <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QTe-30-nbZ" id="2Bf-um-DGd">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AoP-34-tha">
+                                            <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -341,6 +356,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Bxv-sy-Blh"/>
         <segue reference="Bzg-jM-w3e"/>
     </inferredMetricsTieBreakers>
 </document>
