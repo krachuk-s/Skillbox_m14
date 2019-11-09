@@ -10,7 +10,7 @@ import UIKit
 
 class TodoListRealmTableViewController: UITableViewController {
 
-    var todoListController = TodoListController()
+    var todoListController = TodoListsController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,19 @@ class TodoListRealmTableViewController: UITableViewController {
         
         tableView.tableFooterView = UIView()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        todoListController.beginObserve()
+    }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        todoListController.stopObserve()
+    }
+    
     
     // MARK: - Actions
     
@@ -72,6 +84,23 @@ class TodoListRealmTableViewController: UITableViewController {
     
     // MARK: - Navigation
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+        case "ShowTodoItems":
+            
+            let vc = (segue.destination as! UINavigationController).topViewController as! TodoItemsRealmTableViewController
+            
+            let indexPath = tableView.indexPath(for: sender as! UITableViewCell)!
+            
+            vc.todoList = todoListController.results[indexPath.row]
+            
+        default:
+            break
+        }
+        
+    }
+    
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
         
         if segue.identifier == "TodoListDoneEditing", let vc = segue.source as? TodoListEditRealmViewController {
@@ -88,7 +117,7 @@ class TodoListRealmTableViewController: UITableViewController {
 }
 
 extension TodoListRealmTableViewController: TodoListControllerDelegate {
-    func didUpdateLists(controller: TodoListController, changes: BatchUpdate) {
+    func didUpdateLists(controller: TodoListsController, changes: BatchUpdate) {
         
         switch changes {
         case .initial:
@@ -109,7 +138,7 @@ extension TodoListRealmTableViewController: TodoListControllerDelegate {
         
     }
     
-    func didUpdateLists(controller: TodoListController) {
+    func didUpdateLists(controller: TodoListsController) {
         
         tableView.reloadData()
     }

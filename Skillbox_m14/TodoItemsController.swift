@@ -1,27 +1,40 @@
 //
-//  TodoListController.swift
+//  TodoItemsController.swift
 //  Skillbox_m14
 //
-//  Created by Kravchuk Sergey on 08.11.2019.
+//  Created by Kravchuk Sergey on 09.11.2019.
 //  Copyright © 2019 Kravchuk Sergey. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
 
-class TodoListController {
-    
-    private var realm = try! Realm()
+class TodoItemsController {
+   
+    var todoList: TodoList
     
     private var notificationToken: NotificationToken?
     
-    private (set) var results: Results<TodoList>!
+    private (set) var results: Results<TodoItem>!
     
-    var delegate: TodoListControllerDelegate?
+    var delegate: TodoItemsControllerDelegate?
     
-    init() {
-        results = realm.objects(TodoList.self)
-        notificationToken = results.observe{[weak self] changes in
+    private var realm: Realm {
+        (UIApplication.shared.delegate as! AppDelegate).mainRealm
+    }
+    
+    init(todoList: TodoList) {
+        
+        self.todoList = todoList
+        
+    }
+    
+    deinit {
+        notificationToken?.invalidate()
+    }
+    
+    func beginObserve() {
+        notificationToken = todoList.todoItems.observe{[weak self] changes in
            
             guard let weakself = self else { return }
             
@@ -50,14 +63,18 @@ class TodoListController {
         }
     }
     
-    deinit {
+    func stopObserve() {
         notificationToken?.invalidate()
     }
     
     
-    func append(_ newElement: TodoList) {
+    func append(_ newElement: TodoItem) {
+        
+        
+        
         do {
             try realm.write {
+                todoList.todoItems.append(newElement)
                 realm.add(newElement)
             }
         } catch {
@@ -67,14 +84,13 @@ class TodoListController {
     
     func remove(at index: Int) {
         try! realm.write{
-            realm.delete(results[index])
+            todoList.todoItems.remove(at: index)
         }
     }
-    
 }
 
-protocol TodoListControllerDelegate {
-    func didUpdateLists(controller: TodoListController)
-    func didUpdateLists(controller: TodoListController,
+protocol TodoItemsControllerDelegate {
+    func didUpdateLists(controller: TodoItemsController)
+    func didUpdateLists(controller: TodoItemsController,
                         changes: BatchUpdate)
 }
