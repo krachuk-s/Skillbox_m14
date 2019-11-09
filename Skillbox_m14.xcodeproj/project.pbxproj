@@ -24,6 +24,7 @@
 		7C057E4E237588C400746340 /* MasterSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C057E4D237588C400746340 /* MasterSplitViewController.swift */; };
 		7C057E5023758F5300746340 /* TodoListEditRealmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C057E4F23758F5300746340 /* TodoListEditRealmViewController.swift */; };
 		7C057E522375A3DE00746340 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C057E512375A3DE00746340 /* ColorCollectionViewCell.swift */; };
+		7CDFF1942376BA7A00B585A7 /* HEXColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFF1932376BA7A00B585A7 /* HEXColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		7C057E4D237588C400746340 /* MasterSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterSplitViewController.swift; sourceTree = "<group>"; };
 		7C057E4F23758F5300746340 /* TodoListEditRealmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListEditRealmViewController.swift; sourceTree = "<group>"; };
 		7C057E512375A3DE00746340 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		7CDFF1932376BA7A00B585A7 /* HEXColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEXColor.swift; sourceTree = "<group>"; };
 		D0D3AE91FB79899F36FB3874 /* Pods-Skillbox_m14.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skillbox_m14.debug.xcconfig"; path = "Target Support Files/Pods-Skillbox_m14/Pods-Skillbox_m14.debug.xcconfig"; sourceTree = "<group>"; };
 		E47432E85A6DC36D4CA0CEFB /* Pods_Skillbox_m14.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skillbox_m14.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 			children = (
 				7C057E4B2375853200746340 /* Models */,
 				7C057E4623756E9400746340 /* TodoListController.swift */,
+				7CDFF1932376BA7A00B585A7 /* HEXColor.swift */,
 				7C057E512375A3DE00746340 /* ColorCollectionViewCell.swift */,
 				7C057E4823757DAB00746340 /* BatchUpdate.swift */,
 				7C057E4C2375854F00746340 /* View controllers */,
@@ -273,6 +276,7 @@
 				7C057E4723756E9400746340 /* TodoListController.swift in Sources */,
 				7C057E3B236AC62E00746340 /* UserData.swift in Sources */,
 				7C057E26236AC3DD00746340 /* SceneDelegate.swift in Sources */,
+				7CDFF1942376BA7A00B585A7 /* HEXColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,6 @@ class TodoItem: Object {
     @objc dynamic var todo = ""
     @objc dynamic var createdAt: Date = Date()
     @objc dynamic var isCompleted = false
-    @objc dynamic var color = "green"
     
     let lists = LinkingObjects(fromType: TodoList.self, property: "todoItems")
     

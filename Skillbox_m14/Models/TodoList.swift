@@ -13,6 +13,16 @@ class TodoList: Object {
     
     @objc dynamic var name = ""
     @objc dynamic var createdAt = Date()
+    @objc dynamic var hexColor: String = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1).toHex
+    
+    var color: UIColor {
+        get {
+            return UIColor.hexColor(hex: hexColor)
+        }
+        set {
+            hexColor = newValue.toHex
+        }
+    }
     
     let todoItems = List<TodoItem>()
     

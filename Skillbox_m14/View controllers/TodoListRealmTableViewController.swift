@@ -46,6 +46,7 @@ class TodoListRealmTableViewController: UITableViewController {
         
         cell.textLabel?.text = todoListController.results[indexPath.row].name
         cell.detailTextLabel?.text = "todos: \(todoListController.results[indexPath.row].todoItems.count)"
+        cell.textLabel?.textColor = todoListController.results[indexPath.row].color
         
         return cell
     }
@@ -77,6 +78,7 @@ class TodoListRealmTableViewController: UITableViewController {
          
             let newList = TodoList()
             newList.name = vc.name
+            newList.color = vc.color
             todoListController.append(newList)
             
         }
