@@ -11,6 +11,23 @@ import UIKit
 class TodoItemsRealmTableViewController: UITableViewController {
 
     @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
+    var editingIndexPath: IndexPath? {
+        didSet {
+            
+            if oldValue != nil {
+                
+                let cell = tableView.cellForRow(at: oldValue!) as! TodoItemTableViewCell
+                cell.todoTextView.resignFirstResponder()
+                
+                todoItemsController?.update(at: oldValue!.row, withText: cell.todoTextView.text, completed: false)
+                
+            }
+            
+            updateUI()
+        }
+    }
     
     var todoList: TodoList? {
         get {
@@ -51,7 +68,10 @@ class TodoItemsRealmTableViewController: UITableViewController {
         
         navigationItem.title = todoList?.name
         
-        addButton.isEnabled = todoList != nil
+        addButton.isEnabled = (todoList != nil && editingIndexPath == nil)
+        doneButton.isEnabled = (todoList != nil && editingIndexPath != nil)
+        
+        
         
     }
     
@@ -67,6 +87,11 @@ class TodoItemsRealmTableViewController: UITableViewController {
         
     }
     
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        
+       editingIndexPath = nil
+        
+    }
     
     
     // MARK: - Table view data source
@@ -80,16 +105,34 @@ class TodoItemsRealmTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemTableViewCell", for: indexPath) as! TodoItemTableViewCell
 
-        cell.textLabel?.text = todoList?.todoItems[indexPath.row].todo
-
+        cell.todoTextView?.text = todoList?.todoItems[indexPath.row].todo
+        cell.completionIndicator.backgroundColor = todoList?.color
+        cell.delegate = self
+        
         return cell
     }
 
-
+    // MARK: - Table view delegate
+  
+    
 }
 
+extension TodoItemsRealmTableViewController: TodoItemTableViewCellDelegate {
+    func todoItemTableViewCellDidBeginEditing(_ cell: TodoItemTableViewCell) {
+    
+        editingIndexPath = tableView.indexPath(for: cell)
+        
+    }
+    
+    func todoItemTableViewCellDidChange(_ cell: TodoItemTableViewCell) {
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
+    }
+}
 
 extension TodoItemsRealmTableViewController: TodoItemsControllerDelegate {
     func didUpdateLists(controller: TodoItemsController, changes: BatchUpdate) {

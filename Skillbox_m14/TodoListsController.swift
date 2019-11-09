@@ -15,7 +15,7 @@ class TodoListsController {
     
     private (set) var results: Results<TodoList>!
     
-    var delegate: TodoListControllerDelegate?
+    weak var delegate: TodoListControllerDelegate?
     
     private var realm: Realm {
         (UIApplication.shared.delegate as! AppDelegate).mainRealm
@@ -93,7 +93,7 @@ class TodoListsController {
     
 }
 
-protocol TodoListControllerDelegate {
+protocol TodoListControllerDelegate: class {
     func didUpdateLists(controller: TodoListsController)
     func didUpdateLists(controller: TodoListsController,
                         changes: BatchUpdate)

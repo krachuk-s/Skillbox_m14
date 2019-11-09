@@ -17,7 +17,7 @@ class TodoItemsController {
     
     private (set) var results: Results<TodoItem>!
     
-    var delegate: TodoItemsControllerDelegate?
+    weak var delegate: TodoItemsControllerDelegate?
     
     private var realm: Realm {
         (UIApplication.shared.delegate as! AppDelegate).mainRealm
@@ -87,9 +87,21 @@ class TodoItemsController {
             todoList.todoItems.remove(at: index)
         }
     }
+    
+    func update(at index: Int, withText todoText: String, completed: Bool) {
+        
+        try! realm.write {
+            
+            todoList.todoItems[index].todo = todoText
+            todoList.todoItems[index].isCompleted = completed
+            
+        }
+        
+    }
+    
 }
 
-protocol TodoItemsControllerDelegate {
+protocol TodoItemsControllerDelegate: class {
     func didUpdateLists(controller: TodoItemsController)
     func didUpdateLists(controller: TodoItemsController,
                         changes: BatchUpdate)
