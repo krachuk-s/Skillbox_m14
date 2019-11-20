@@ -11,8 +11,17 @@ import UIKit
 class TodoItemTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var completionIndicator: UIView!
+    @IBOutlet weak var completionIndicator: CompletionIndicatorView!
     @IBOutlet weak var todoTextView: UITextView!
+    
+    var isCompleted: Bool {
+        get {
+            completionIndicator.isCompleted
+        }
+        set {
+            completionIndicator.isCompleted = newValue
+        }
+    }
     
     weak var delegate: TodoItemTableViewCellDelegate?
     
@@ -20,7 +29,7 @@ class TodoItemTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         todoTextView.delegate = self
-        
+        completionIndicator.delegate = self
     }
     
     override func layoutSubviews() {
@@ -41,7 +50,14 @@ extension TodoItemTableViewCell: UITextViewDelegate {
     }
 }
 
+extension TodoItemTableViewCell: CompletionIndicatorViewDelegate {
+    func completionIndicatorDidChangedValue(_ indicator: CompletionIndicatorView) {
+        delegate?.todoItemTableViewCellDidChange(self, isCompleted: completionIndicator.isCompleted)
+    }
+}
+
 protocol TodoItemTableViewCellDelegate: class {
     func todoItemTableViewCellDidBeginEditing(_ cell: TodoItemTableViewCell)
     func todoItemTableViewCellDidChange(_ cell: TodoItemTableViewCell)
+    func todoItemTableViewCellDidChange(_ cell: TodoItemTableViewCell, isCompleted: Bool)
 }

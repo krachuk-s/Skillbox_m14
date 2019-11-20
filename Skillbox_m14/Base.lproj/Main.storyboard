@@ -271,7 +271,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bB1-nW-xjU">
                                             <rect key="frame" x="8" y="0.0" width="398" height="200.5"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bmf-uJ-awK">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bmf-uJ-awK" customClass="CompletionIndicatorView" customModule="Skillbox_m14" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="85.5" width="30" height="30"/>
                                                     <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>

@@ -21,13 +21,20 @@ class TodoItemsRealmTableViewController: UITableViewController {
                 let cell = tableView.cellForRow(at: oldValue!) as! TodoItemTableViewCell
                 cell.todoTextView.resignFirstResponder()
                 
-                todoItemsController?.update(at: oldValue!.row, withText: cell.todoTextView.text, completed: false)
+                let todoText = cell.todoTextView.text!
                 
+                if todoText.isEmpty {
+                    todoItemsController?.remove(at: oldValue!.row)
+                } else {
+                    todoItemsController?.update(at: oldValue!.row, withText: cell.todoTextView.text, completed: cell.isCompleted)
+                }
             }
             
             updateUI()
         }
     }
+    
+    var addButtonWasPressed = false
     
     var todoList: TodoList? {
         get {
@@ -81,10 +88,8 @@ class TodoItemsRealmTableViewController: UITableViewController {
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
     
         let newItem = TodoItem()
-        newItem.todo = "New item"
-        
         todoItemsController?.append(newItem)
-        
+        addButtonWasPressed = true
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
@@ -107,8 +112,9 @@ class TodoItemsRealmTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemTableViewCell", for: indexPath) as! TodoItemTableViewCell
 
-        cell.todoTextView?.text = todoList?.todoItems[indexPath.row].todo
-        cell.completionIndicator.backgroundColor = todoList?.color
+        cell.todoTextView?.text = todoList!.todoItems[indexPath.row].todo
+        cell.completionIndicator.color = todoList!.color
+        cell.isCompleted = todoList!.todoItems[indexPath.row].isCompleted
         cell.delegate = self
         
         return cell
@@ -116,10 +122,34 @@ class TodoItemsRealmTableViewController: UITableViewController {
 
     // MARK: - Table view delegate
   
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        switch editingStyle {
+        case .delete:
+            
+            todoItemsController?.remove(at: indexPath.row)
+            
+        default:
+            break
+        }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return editingIndexPath == nil
+    }
     
 }
 
 extension TodoItemsRealmTableViewController: TodoItemTableViewCellDelegate {
+    
+    func todoItemTableViewCellDidChange(_ cell: TodoItemTableViewCell, isCompleted: Bool) {
+        
+        let indexPath = tableView.indexPath(for: cell)!
+        todoItemsController?.update(at: indexPath.row, withText: cell.todoTextView.text, completed: cell.isCompleted)
+        
+    }
+    
     func todoItemTableViewCellDidBeginEditing(_ cell: TodoItemTableViewCell) {
     
         editingIndexPath = tableView.indexPath(for: cell)
@@ -152,6 +182,16 @@ extension TodoItemsRealmTableViewController: TodoItemsControllerDelegate {
             
         case .error(let error):
             print(error)
+        }
+        
+        if addButtonWasPressed {
+            addButtonWasPressed = false
+            
+            let indexPath = IndexPath(row: todoList!.todoItems.count - 1, section: 0)
+            let cell = tableView.cellForRow(at: indexPath) as! TodoItemTableViewCell
+            
+            cell.todoTextView.becomeFirstResponder()
+            
         }
         
     }
