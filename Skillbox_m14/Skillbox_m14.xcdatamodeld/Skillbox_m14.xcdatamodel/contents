@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="19B88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDTodoItem" representedClassName="CDTodoItem" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isCompleted" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="todo" attributeType="String" defaultValueString=""/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTodoList" inverseName="todoItems" inverseEntity="CDTodoList"/>
+    </entity>
+    <entity name="CDTodoList" representedClassName="CDTodoList" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="hexColor" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <relationship name="todoItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDTodoItem" inverseName="list" inverseEntity="CDTodoItem"/>
+    </entity>
+    <elements>
+        <element name="CDTodoItem" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="CDTodoList" positionX="117.83203125" positionY="-199.70703125" width="128" height="103"/>
+    </elements>
 </model>
