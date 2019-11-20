@@ -54,7 +54,7 @@
 		7CDFF1932376BA7A00B585A7 /* HEXColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEXColor.swift; sourceTree = "<group>"; };
 		7CDFF1952376C1C200B585A7 /* TodoItemsRealmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsRealmTableViewController.swift; sourceTree = "<group>"; };
 		7CDFF1972376C2FA00B585A7 /* TodoItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsController.swift; sourceTree = "<group>"; };
-		7CDFF1992376DFF000B585A7 /* TodoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoItemTableViewCell.swift; path = "View controllers/TodoItemTableViewCell.swift"; sourceTree = "<group>"; };
+		7CDFF1992376DFF000B585A7 /* TodoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTableViewCell.swift; sourceTree = "<group>"; };
 		7CDFF19B2376E9F000B585A7 /* CompletionIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionIndicatorView.swift; sourceTree = "<group>"; };
 		D0D3AE91FB79899F36FB3874 /* Pods-Skillbox_m14.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skillbox_m14.debug.xcconfig"; path = "Target Support Files/Pods-Skillbox_m14/Pods-Skillbox_m14.debug.xcconfig"; sourceTree = "<group>"; };
 		E47432E85A6DC36D4CA0CEFB /* Pods_Skillbox_m14.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skillbox_m14.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,14 +93,10 @@
 		7C057E22236AC3DD00746340 /* Skillbox_m14 */ = {
 			isa = PBXGroup;
 			children = (
-				7CDFF1992376DFF000B585A7 /* TodoItemTableViewCell.swift */,
-				7CDFF19B2376E9F000B585A7 /* CompletionIndicatorView.swift */,
+				7CD9C2C8238555CB00B5F54C /* Views */,
 				7C057E4B2375853200746340 /* Models */,
-				7C057E4623756E9400746340 /* TodoListsController.swift */,
-				7CDFF1972376C2FA00B585A7 /* TodoItemsController.swift */,
-				7CDFF1932376BA7A00B585A7 /* HEXColor.swift */,
-				7C057E512375A3DE00746340 /* ColorCollectionViewCell.swift */,
-				7C057E4823757DAB00746340 /* BatchUpdate.swift */,
+				7CD9C2C62385558300B5F54C /* Model controllers */,
+				7CD9C2C7238555A400B5F54C /* Utilites */,
 				7C057E4C2375854F00746340 /* View controllers */,
 				7C057E29236AC3DD00746340 /* Main.storyboard */,
 				7C057E34236AC3E200746340 /* Info.plist */,
@@ -141,6 +137,34 @@
 				7C057E27236AC3DD00746340 /* UserDefaultsViewController.swift */,
 			);
 			path = "View controllers";
+			sourceTree = "<group>";
+		};
+		7CD9C2C62385558300B5F54C /* Model controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C057E4823757DAB00746340 /* BatchUpdate.swift */,
+				7C057E4623756E9400746340 /* TodoListsController.swift */,
+				7CDFF1972376C2FA00B585A7 /* TodoItemsController.swift */,
+			);
+			path = "Model controllers";
+			sourceTree = "<group>";
+		};
+		7CD9C2C7238555A400B5F54C /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				7CDFF1932376BA7A00B585A7 /* HEXColor.swift */,
+			);
+			path = Utilites;
+			sourceTree = "<group>";
+		};
+		7CD9C2C8238555CB00B5F54C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7CDFF1992376DFF000B585A7 /* TodoItemTableViewCell.swift */,
+				7CDFF19B2376E9F000B585A7 /* CompletionIndicatorView.swift */,
+				7C057E512375A3DE00746340 /* ColorCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C531D26A9916E784DAA942B3 /* Pods */ = {
