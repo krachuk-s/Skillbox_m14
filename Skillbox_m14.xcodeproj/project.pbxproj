@@ -22,12 +22,13 @@
 		7C057E4723756E9400746340 /* TodoListsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C057E4623756E9400746340 /* TodoListsController.swift */; };
 		7C057E4923757DAB00746340 /* BatchUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C057E4823757DAB00746340 /* BatchUpdate.swift */; };
 		7C057E4E237588C400746340 /* MasterSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C057E4D237588C400746340 /* MasterSplitViewController.swift */; };
-		7C057E5023758F5300746340 /* TodoListEditRealmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C057E4F23758F5300746340 /* TodoListEditRealmViewController.swift */; };
+		7C057E5023758F5300746340 /* TodoListEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C057E4F23758F5300746340 /* TodoListEditViewController.swift */; };
 		7C057E522375A3DE00746340 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C057E512375A3DE00746340 /* ColorCollectionViewCell.swift */; };
 		7CD9C2E323855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E123855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift */; };
 		7CD9C2E423855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E223855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift */; };
 		7CD9C2E723855D4600B5F54C /* CDTodoList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E523855D4600B5F54C /* CDTodoList+CoreDataClass.swift */; };
 		7CD9C2E823855D4600B5F54C /* CDTodoList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E623855D4600B5F54C /* CDTodoList+CoreDataProperties.swift */; };
+		7CD9C2EA2385605000B5F54C /* CDTodoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E92385605000B5F54C /* CDTodoListTableViewController.swift */; };
 		7CDFF1942376BA7A00B585A7 /* HEXColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFF1932376BA7A00B585A7 /* HEXColor.swift */; };
 		7CDFF1962376C1C200B585A7 /* TodoItemsRealmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFF1952376C1C200B585A7 /* TodoItemsRealmTableViewController.swift */; };
 		7CDFF1982376C2FA00B585A7 /* TodoItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFF1972376C2FA00B585A7 /* TodoItemsController.swift */; };
@@ -53,12 +54,13 @@
 		7C057E4623756E9400746340 /* TodoListsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListsController.swift; sourceTree = "<group>"; };
 		7C057E4823757DAB00746340 /* BatchUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchUpdate.swift; sourceTree = "<group>"; };
 		7C057E4D237588C400746340 /* MasterSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterSplitViewController.swift; sourceTree = "<group>"; };
-		7C057E4F23758F5300746340 /* TodoListEditRealmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListEditRealmViewController.swift; sourceTree = "<group>"; };
+		7C057E4F23758F5300746340 /* TodoListEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListEditViewController.swift; sourceTree = "<group>"; };
 		7C057E512375A3DE00746340 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		7CD9C2E123855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7CD9C2E223855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7CD9C2E523855D4600B5F54C /* CDTodoList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoList+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7CD9C2E623855D4600B5F54C /* CDTodoList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7CD9C2E92385605000B5F54C /* CDTodoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTodoListTableViewController.swift; sourceTree = "<group>"; };
 		7CDFF1932376BA7A00B585A7 /* HEXColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEXColor.swift; sourceTree = "<group>"; };
 		7CDFF1952376C1C200B585A7 /* TodoItemsRealmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsRealmTableViewController.swift; sourceTree = "<group>"; };
 		7CDFF1972376C2FA00B585A7 /* TodoItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsController.swift; sourceTree = "<group>"; };
@@ -143,10 +145,11 @@
 			isa = PBXGroup;
 			children = (
 				7C057E4423756D3400746340 /* TodoListRealmTableViewController.swift */,
-				7C057E4F23758F5300746340 /* TodoListEditRealmViewController.swift */,
 				7CDFF1952376C1C200B585A7 /* TodoItemsRealmTableViewController.swift */,
+				7C057E4F23758F5300746340 /* TodoListEditViewController.swift */,
 				7C057E4D237588C400746340 /* MasterSplitViewController.swift */,
 				7C057E27236AC3DD00746340 /* UserDefaultsViewController.swift */,
+				7CD9C2E92385605000B5F54C /* CDTodoListTableViewController.swift */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";
@@ -319,7 +322,8 @@
 				7C057E3D2374195A00746340 /* TodoItem.swift in Sources */,
 				7C057E4923757DAB00746340 /* BatchUpdate.swift in Sources */,
 				7CD9C2E323855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift in Sources */,
-				7C057E5023758F5300746340 /* TodoListEditRealmViewController.swift in Sources */,
+				7CD9C2EA2385605000B5F54C /* CDTodoListTableViewController.swift in Sources */,
+				7C057E5023758F5300746340 /* TodoListEditViewController.swift in Sources */,
 				7CD9C2E723855D4600B5F54C /* CDTodoList+CoreDataClass.swift in Sources */,
 				7CD9C2E823855D4600B5F54C /* CDTodoList+CoreDataProperties.swift in Sources */,
 				7CD9C2E423855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift in Sources */,

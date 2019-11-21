@@ -104,7 +104,7 @@ class TodoListRealmTableViewController: UITableViewController {
          
         case "EditTodoListSegue":
             
-            let vc = (segue.destination as! UINavigationController).topViewController as! TodoListEditRealmViewController
+            let vc = (segue.destination as! UINavigationController).topViewController as! TodoListEditViewController
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)!
             
             vc.name = todoListController.results[indexPath.row].name
@@ -120,7 +120,7 @@ class TodoListRealmTableViewController: UITableViewController {
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
         
-        if segue.identifier == "TodoListDoneEditing", let vc = segue.source as? TodoListEditRealmViewController {
+        if segue.identifier == "TodoListDoneEditing", let vc = segue.source as? TodoListEditViewController {
          
             if let editingRow = editingRow {
                 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoListEditRealmViewController: UIViewController {
+class TodoListEditViewController: UIViewController {
 
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var colorView: UIView!
@@ -67,7 +67,7 @@ class TodoListEditRealmViewController: UIViewController {
 }
 
 
-extension TodoListEditRealmViewController: UITextFieldDelegate {
+extension TodoListEditViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
@@ -76,7 +76,7 @@ extension TodoListEditRealmViewController: UITextFieldDelegate {
     
 }
 
-extension TodoListEditRealmViewController: UICollectionViewDataSource {
+extension TodoListEditViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -100,7 +100,7 @@ extension TodoListEditRealmViewController: UICollectionViewDataSource {
     
 }
 
-extension TodoListEditRealmViewController: UICollectionViewDelegate {
+extension TodoListEditViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

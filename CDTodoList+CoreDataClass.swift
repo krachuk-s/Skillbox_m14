@@ -13,4 +13,8 @@ import CoreData
 @objc(CDTodoList)
 public class CDTodoList: NSManagedObject {
 
+    public override func awakeFromInsert() {
+        createdAt = Date()
+    }
+    
 }
