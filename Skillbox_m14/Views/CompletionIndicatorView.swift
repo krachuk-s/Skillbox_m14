@@ -52,7 +52,7 @@ import UIKit
     
     private func initialSetup() {
         
-        middleView.backgroundColor = UIColor.white
+        middleView.backgroundColor = UIColor.systemBackground
         addSubview(middleView)
         
         innerView.backgroundColor = color
