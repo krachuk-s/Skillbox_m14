@@ -23,6 +23,9 @@ class UserDefaultsViewController: UIViewController {
         super.viewDidLoad()
         
         user = UserData.current ?? UserData(name: "", familyName: "")
+        
+        nameTextField.delegate = self
+        familyTextField.delegate = self
     }
 
     func saveUser() {
@@ -44,7 +47,12 @@ class UserDefaultsViewController: UIViewController {
         saveUser()
     }
     
-    
-    
+}
+
+extension UserDefaultsViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
