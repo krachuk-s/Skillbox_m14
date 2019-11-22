@@ -84,4 +84,6 @@ struct AccuWeatherPersistantStorage {
     private static let currentWeatherPath: String = "current"
     private static let dailyForecastsPath = "dailyForecasts"
     private static let hourlyForecastsPath = "hourlyForecasts"
+    
+    // just a git remote test
 }
