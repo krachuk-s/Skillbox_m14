@@ -34,7 +34,7 @@ struct AccuWeatherHourlyForecast: Codable {
         case "Sunny":
             return "☀️"
         default:
-            print(iconPhrase)
+            print(iconPhrase ?? "")
             return "☀️"
         }
     }
