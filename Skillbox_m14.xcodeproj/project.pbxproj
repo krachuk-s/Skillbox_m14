@@ -156,6 +156,10 @@
 		7C057E4B2375853200746340 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7C9228FB2387F4F7009DA3B0 /* AccuWeatherCurrentConditions.swift */,
+				7C9228FD2387F4F7009DA3B0 /* AccuWeatherDailyForecast.swift */,
+				7C9228FA2387F4F7009DA3B0 /* AccuWeatherHourlyForecast.swift */,
+				7C9228FC2387F4F7009DA3B0 /* AccuWeatherTemperatureData.swift */,
 				7C057E3C2374195A00746340 /* TodoItem.swift */,
 				7C057E3E237436E400746340 /* TodoList.swift */,
 				7C057E3A236AC62E00746340 /* UserData.swift */,
@@ -207,10 +211,6 @@
 				7CDFF1992376DFF000B585A7 /* TodoItemTableViewCell.swift */,
 				7CDFF19B2376E9F000B585A7 /* CompletionIndicatorView.swift */,
 				7C057E512375A3DE00746340 /* ColorCollectionViewCell.swift */,
-				7C9228FB2387F4F7009DA3B0 /* AccuWeatherCurrentConditions.swift */,
-				7C9228FD2387F4F7009DA3B0 /* AccuWeatherDailyForecast.swift */,
-				7C9228FA2387F4F7009DA3B0 /* AccuWeatherHourlyForecast.swift */,
-				7C9228FC2387F4F7009DA3B0 /* AccuWeatherTemperatureData.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
