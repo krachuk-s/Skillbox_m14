@@ -9,16 +9,19 @@
 import UIKit
 import CoreData
 
-class CDTodoListTableViewController: UITableViewController {
+class CDTodoListTableViewController: FetchedResultsTableViewController {
 
-    var fetchedResultsController: NSFetchedResultsController<CDTodoList>!
+    //var fetchedResultsController: NSFetchedResultsController<CDTodoList>!
+    
+    var editingRow: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.leftBarButtonItem = editButtonItem
         tableView.tableFooterView = UIView()
         
-        let fetchRequest: NSFetchRequest<CDTodoList> = CDTodoList.fetchRequest()
+        let fetchRequest: NSFetchRequest<NSManagedObject> = NSFetchRequest<CDTodoList>(entityName: "CDTodoList") as! NSFetchRequest<NSManagedObject>
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
         
         fetchedResultsController = NSFetchedResultsController(
@@ -27,16 +30,34 @@ class CDTodoListTableViewController: UITableViewController {
             sectionNameKeyPath: nil,
             cacheName: nil
         )
-        fetchedResultsController.delegate = self
+        fetchedResultsController!.delegate = self
         
         do {
-            try fetchedResultsController.performFetch()
+            try fetchedResultsController!.performFetch()
         } catch {
             print(error)
         }
-        
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        fetchedResultsController?.delegate = self
+        try? fetchedResultsController?.performFetch()
+        
+        tableView.reloadData()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        fetchedResultsController?.delegate = nil
+    }
+    
+    func object(at indexPath: IndexPath) -> CDTodoList? {
+        return fetchedResultsController?.object(at: indexPath) as? CDTodoList
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -60,7 +81,7 @@ class CDTodoListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoListCell")!
         
-        let todoList = fetchedResultsController.object(at: indexPath)
+        let todoList = object(at: indexPath)!
         
         cell.textLabel?.text = todoList.name
         cell.detailTextLabel?.text = "todos: \(todoList.todoItems?.count ?? 0)"
@@ -73,75 +94,68 @@ class CDTodoListTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     // MARK: - Navigation
     
     @IBAction func cdUnwindSegue(_ segue: UIStoryboardSegue) {
         
         if segue.identifier == "TodoListDoneEditing", let vc = segue.source as? TodoListEditViewController {
          
-            persistentContainer.performBackgroundTask{ cntxt in
-            
-                cntxt.automaticallyMergesChangesFromParent = true
+            if let editingRow = editingRow {
                 
-                let newList = CDTodoList(context: cntxt)
-                newList.name = vc.name
-                newList.hexColor = vc.color.toHex
-            
-                try? cntxt.save()
+                let todoList = object(at: editingRow)!
+                viewManagedContext.perform {
+                    todoList.name = vc.name
+                    todoList.hexColor = vc.color.toHex
+                    
+                    try? viewManagedContext.save()
+                }
+                
+            } else {
+                persistentContainer.performBackgroundTask{ cntxt in
+                    
+                    cntxt.automaticallyMergesChangesFromParent = true
+                    
+                    let newList = CDTodoList(context: cntxt)
+                    newList.name = vc.name
+                    newList.hexColor = vc.color.toHex
+                    
+                    try? cntxt.save()
+                }
             }
         }
     
     }
     
-}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "ShowTodoItems":
 
+            let vc = segue.destination as! CDTodoItemsTableViewController
 
-extension CDTodoListTableViewController: NSFetchedResultsControllerDelegate {
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        
-        switch type {
-        case .insert:
-            tableView.insertSections([sectionIndex], with: .automatic)
-        case .delete:
-            tableView.deleteSections([sectionIndex], with: .automatic)
+            let indexPath = tableView.indexPath(for: sender as! UITableViewCell)!
+
+            vc.todoList = object(at: indexPath)
+
+        case "EditTodoListSegue":
+
+            let vc = (segue.destination as! UINavigationController).topViewController as! TodoListEditViewController
+            let indexPath = tableView.indexPath(for: sender as! UITableViewCell)!
+            
+            vc.name = object(at: indexPath)!.name!
+            vc.color = UIColor.hexColor(hex: object(at: indexPath)!.hexColor!)
+            
+            editingRow = indexPath
+
         default:
             break
         }
-        
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
-        switch type {
-        case .insert:
-            
-            tableView.insertRows(at: [newIndexPath!], with: .automatic)
-            
-        case .delete:
-            
-            tableView.deleteRows(at: [indexPath!], with: .automatic)
-            
-        case .move:
-            
-            tableView.moveRow(at: indexPath!, to: newIndexPath!)
-            
-        case .update:
-            
-            tableView.reloadRows(at: [indexPath!], with: .automatic)
-            
-        @unknown default:
-            fatalError("Additional unknon case")
-        }
-        
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
     }
     
 }
+

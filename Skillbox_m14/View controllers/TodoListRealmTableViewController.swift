@@ -16,6 +16,8 @@ class TodoListRealmTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.leftBarButtonItem = editButtonItem
+        
         todoListController.delegate = self
         
         tableView.tableFooterView = UIView()
@@ -42,9 +44,6 @@ class TodoListRealmTableViewController: UITableViewController {
         newList.name = "Todo list"
         todoListController.append(newList)
         
-    }
-    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
-        tableView.setEditing(!tableView.isEditing, animated: true)
     }
     
     // MARK: - Table view data source

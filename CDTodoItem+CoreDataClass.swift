@@ -13,4 +13,9 @@ import CoreData
 @objc(CDTodoItem)
 public class CDTodoItem: NSManagedObject {
 
+    public override func awakeFromInsert() {
+        createdAt = Date()
+        uuid = UUID()
+    }
+    
 }

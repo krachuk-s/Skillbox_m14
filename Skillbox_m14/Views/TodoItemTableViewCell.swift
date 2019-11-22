@@ -52,12 +52,12 @@ extension TodoItemTableViewCell: UITextViewDelegate {
 
 extension TodoItemTableViewCell: CompletionIndicatorViewDelegate {
     func completionIndicatorDidChangedValue(_ indicator: CompletionIndicatorView) {
-        delegate?.todoItemTableViewCellDidChange(self, isCompleted: completionIndicator.isCompleted)
+        delegate?.todoItemTableViewCellDidEndEditing(self)
     }
 }
 
 protocol TodoItemTableViewCellDelegate: class {
     func todoItemTableViewCellDidBeginEditing(_ cell: TodoItemTableViewCell)
     func todoItemTableViewCellDidChange(_ cell: TodoItemTableViewCell)
-    func todoItemTableViewCellDidChange(_ cell: TodoItemTableViewCell, isCompleted: Bool)
+    func todoItemTableViewCellDidEndEditing(_ cell: TodoItemTableViewCell)
 }

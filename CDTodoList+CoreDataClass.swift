@@ -15,6 +15,7 @@ public class CDTodoList: NSManagedObject {
 
     public override func awakeFromInsert() {
         createdAt = Date()
+        uuid = UUID()
     }
     
 }

@@ -2,7 +2,7 @@
 //  CDTodoList+CoreDataProperties.swift
 //  Skillbox_m14
 //
-//  Created by Kravchuk Sergey on 20.11.2019.
+//  Created by Kravchuk Sergey on 21.11.2019.
 //  Copyright © 2019 Kravchuk Sergey. All rights reserved.
 //
 //
@@ -17,9 +17,10 @@ extension CDTodoList {
         return NSFetchRequest<CDTodoList>(entityName: "CDTodoList")
     }
 
-    @NSManaged public var name: String?
     @NSManaged public var createdAt: Date?
     @NSManaged public var hexColor: String?
+    @NSManaged public var name: String?
+    @NSManaged public var uuid: UUID?
     @NSManaged public var todoItems: NSSet?
 
 }

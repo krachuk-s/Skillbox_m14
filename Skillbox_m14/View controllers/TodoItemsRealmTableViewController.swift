@@ -13,20 +13,22 @@ class TodoItemsRealmTableViewController: UITableViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
-    var editingIndexPath: IndexPath? {
+    var editingItem: TodoItem? {
         didSet {
             
             if oldValue != nil {
                 
-                let cell = tableView.cellForRow(at: oldValue!) as! TodoItemTableViewCell
+                let index = todoList!.todoItems.index(of: oldValue!)!
+                let indexPath = IndexPath(row: index, section: 0)
+                let cell = tableView.cellForRow(at: indexPath) as! TodoItemTableViewCell
                 cell.todoTextView.resignFirstResponder()
                 
                 let todoText = cell.todoTextView.text!
                 
                 if todoText.isEmpty {
-                    todoItemsController?.remove(at: oldValue!.row)
+                    todoItemsController?.remove(at: index)
                 } else {
-                    todoItemsController?.update(at: oldValue!.row, withText: cell.todoTextView.text, completed: cell.isCompleted)
+                    todoItemsController?.update(at: index, withText: cell.todoTextView.text, completed: cell.isCompleted)
                 }
             }
             
@@ -74,11 +76,8 @@ class TodoItemsRealmTableViewController: UITableViewController {
     func updateUI() {
         
         navigationItem.title = todoList?.name
-        
-        addButton.isEnabled = (todoList != nil && editingIndexPath == nil)
-        doneButton.isEnabled = (todoList != nil && editingIndexPath != nil)
-        
-        
+        addButton.isEnabled = (todoList != nil && editingItem == nil)
+        doneButton.isEnabled = (todoList != nil && editingItem != nil)
         
     }
     
@@ -94,7 +93,7 @@ class TodoItemsRealmTableViewController: UITableViewController {
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         
-       editingIndexPath = nil
+       editingItem = nil
         
     }
     
@@ -135,15 +134,15 @@ class TodoItemsRealmTableViewController: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return editingIndexPath == nil
-    }
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return editingItem == nil
+//    }
     
 }
 
 extension TodoItemsRealmTableViewController: TodoItemTableViewCellDelegate {
     
-    func todoItemTableViewCellDidChange(_ cell: TodoItemTableViewCell, isCompleted: Bool) {
+    func todoItemTableViewCellDidEndEditing(_ cell: TodoItemTableViewCell) {
         
         let indexPath = tableView.indexPath(for: cell)!
         todoItemsController?.update(at: indexPath.row, withText: cell.todoTextView.text, completed: cell.isCompleted)
@@ -152,7 +151,8 @@ extension TodoItemsRealmTableViewController: TodoItemTableViewCellDelegate {
     
     func todoItemTableViewCellDidBeginEditing(_ cell: TodoItemTableViewCell) {
     
-        editingIndexPath = tableView.indexPath(for: cell)
+        let indexPath = tableView.indexPath(for: cell)
+        editingItem = todoList?.todoItems[indexPath!.row]
         
     }
     

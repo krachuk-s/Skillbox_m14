@@ -4,16 +4,28 @@
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="isCompleted" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="todo" attributeType="String" defaultValueString=""/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTodoList" inverseName="todoItems" inverseEntity="CDTodoList"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="uuid"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="CDTodoList" representedClassName="CDTodoList" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="hexColor" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="todoItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDTodoItem" inverseName="list" inverseEntity="CDTodoItem"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="uuid"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="CDTodoItem" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="CDTodoList" positionX="117.83203125" positionY="-199.70703125" width="128" height="103"/>
+        <element name="CDTodoItem" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="CDTodoList" positionX="117.83203125" positionY="-199.70703125" width="128" height="118"/>
     </elements>
 </model>

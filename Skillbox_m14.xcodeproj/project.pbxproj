@@ -24,11 +24,22 @@
 		7C057E4E237588C400746340 /* MasterSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C057E4D237588C400746340 /* MasterSplitViewController.swift */; };
 		7C057E5023758F5300746340 /* TodoListEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C057E4F23758F5300746340 /* TodoListEditViewController.swift */; };
 		7C057E522375A3DE00746340 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C057E512375A3DE00746340 /* ColorCollectionViewCell.swift */; };
+		7C9228F92387F4DB009DA3B0 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9228F82387F4DB009DA3B0 /* WeatherViewController.swift */; };
+		7C9228FE2387F4F7009DA3B0 /* AccuWeatherHourlyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9228FA2387F4F7009DA3B0 /* AccuWeatherHourlyForecast.swift */; };
+		7C9228FF2387F4F7009DA3B0 /* AccuWeatherCurrentConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9228FB2387F4F7009DA3B0 /* AccuWeatherCurrentConditions.swift */; };
+		7C9229002387F4F7009DA3B0 /* AccuWeatherTemperatureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9228FC2387F4F7009DA3B0 /* AccuWeatherTemperatureData.swift */; };
+		7C9229012387F4F7009DA3B0 /* AccuWeatherDailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9228FD2387F4F7009DA3B0 /* AccuWeatherDailyForecast.swift */; };
+		7C9229032387F51D009DA3B0 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9229022387F51D009DA3B0 /* NetworkHelper.swift */; };
+		7C9229052387F530009DA3B0 /* AccuWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9229042387F530009DA3B0 /* AccuWeatherAPI.swift */; };
+		7C9229082387F548009DA3B0 /* HourlyForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9229062387F548009DA3B0 /* HourlyForecastCell.swift */; };
+		7C9229092387F548009DA3B0 /* DailyForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9229072387F548009DA3B0 /* DailyForecastCell.swift */; };
 		7CD9C2E323855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E123855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift */; };
 		7CD9C2E423855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E223855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift */; };
 		7CD9C2E723855D4600B5F54C /* CDTodoList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E523855D4600B5F54C /* CDTodoList+CoreDataClass.swift */; };
 		7CD9C2E823855D4600B5F54C /* CDTodoList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E623855D4600B5F54C /* CDTodoList+CoreDataProperties.swift */; };
 		7CD9C2EA2385605000B5F54C /* CDTodoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E92385605000B5F54C /* CDTodoListTableViewController.swift */; };
+		7CD9C2EC23869DED00B5F54C /* CDTodoItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2EB23869DED00B5F54C /* CDTodoItemsTableViewController.swift */; };
+		7CD9C2EE2386A05A00B5F54C /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2ED2386A05A00B5F54C /* FetchedResultsTableViewController.swift */; };
 		7CDFF1942376BA7A00B585A7 /* HEXColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFF1932376BA7A00B585A7 /* HEXColor.swift */; };
 		7CDFF1962376C1C200B585A7 /* TodoItemsRealmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFF1952376C1C200B585A7 /* TodoItemsRealmTableViewController.swift */; };
 		7CDFF1982376C2FA00B585A7 /* TodoItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDFF1972376C2FA00B585A7 /* TodoItemsController.swift */; };
@@ -56,11 +67,22 @@
 		7C057E4D237588C400746340 /* MasterSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterSplitViewController.swift; sourceTree = "<group>"; };
 		7C057E4F23758F5300746340 /* TodoListEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListEditViewController.swift; sourceTree = "<group>"; };
 		7C057E512375A3DE00746340 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		7C9228F82387F4DB009DA3B0 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		7C9228FA2387F4F7009DA3B0 /* AccuWeatherHourlyForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccuWeatherHourlyForecast.swift; sourceTree = "<group>"; };
+		7C9228FB2387F4F7009DA3B0 /* AccuWeatherCurrentConditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccuWeatherCurrentConditions.swift; sourceTree = "<group>"; };
+		7C9228FC2387F4F7009DA3B0 /* AccuWeatherTemperatureData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccuWeatherTemperatureData.swift; sourceTree = "<group>"; };
+		7C9228FD2387F4F7009DA3B0 /* AccuWeatherDailyForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccuWeatherDailyForecast.swift; sourceTree = "<group>"; };
+		7C9229022387F51D009DA3B0 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		7C9229042387F530009DA3B0 /* AccuWeatherAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccuWeatherAPI.swift; sourceTree = "<group>"; };
+		7C9229062387F548009DA3B0 /* HourlyForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyForecastCell.swift; sourceTree = "<group>"; };
+		7C9229072387F548009DA3B0 /* DailyForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyForecastCell.swift; sourceTree = "<group>"; };
 		7CD9C2E123855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7CD9C2E223855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7CD9C2E523855D4600B5F54C /* CDTodoList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoList+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7CD9C2E623855D4600B5F54C /* CDTodoList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7CD9C2E92385605000B5F54C /* CDTodoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTodoListTableViewController.swift; sourceTree = "<group>"; };
+		7CD9C2EB23869DED00B5F54C /* CDTodoItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTodoItemsTableViewController.swift; sourceTree = "<group>"; };
+		7CD9C2ED2386A05A00B5F54C /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
 		7CDFF1932376BA7A00B585A7 /* HEXColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEXColor.swift; sourceTree = "<group>"; };
 		7CDFF1952376C1C200B585A7 /* TodoItemsRealmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsRealmTableViewController.swift; sourceTree = "<group>"; };
 		7CDFF1972376C2FA00B585A7 /* TodoItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsController.swift; sourceTree = "<group>"; };
@@ -144,12 +166,15 @@
 		7C057E4C2375854F00746340 /* View controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C9228F82387F4DB009DA3B0 /* WeatherViewController.swift */,
 				7C057E4423756D3400746340 /* TodoListRealmTableViewController.swift */,
 				7CDFF1952376C1C200B585A7 /* TodoItemsRealmTableViewController.swift */,
 				7C057E4F23758F5300746340 /* TodoListEditViewController.swift */,
 				7C057E4D237588C400746340 /* MasterSplitViewController.swift */,
 				7C057E27236AC3DD00746340 /* UserDefaultsViewController.swift */,
+				7CD9C2ED2386A05A00B5F54C /* FetchedResultsTableViewController.swift */,
 				7CD9C2E92385605000B5F54C /* CDTodoListTableViewController.swift */,
+				7CD9C2EB23869DED00B5F54C /* CDTodoItemsTableViewController.swift */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";
@@ -167,6 +192,8 @@
 		7CD9C2C7238555A400B5F54C /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				7C9229042387F530009DA3B0 /* AccuWeatherAPI.swift */,
+				7C9229022387F51D009DA3B0 /* NetworkHelper.swift */,
 				7CDFF1932376BA7A00B585A7 /* HEXColor.swift */,
 			);
 			path = Utilites;
@@ -175,9 +202,15 @@
 		7CD9C2C8238555CB00B5F54C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7C9229072387F548009DA3B0 /* DailyForecastCell.swift */,
+				7C9229062387F548009DA3B0 /* HourlyForecastCell.swift */,
 				7CDFF1992376DFF000B585A7 /* TodoItemTableViewCell.swift */,
 				7CDFF19B2376E9F000B585A7 /* CompletionIndicatorView.swift */,
 				7C057E512375A3DE00746340 /* ColorCollectionViewCell.swift */,
+				7C9228FB2387F4F7009DA3B0 /* AccuWeatherCurrentConditions.swift */,
+				7C9228FD2387F4F7009DA3B0 /* AccuWeatherDailyForecast.swift */,
+				7C9228FA2387F4F7009DA3B0 /* AccuWeatherHourlyForecast.swift */,
+				7C9228FC2387F4F7009DA3B0 /* AccuWeatherTemperatureData.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,28 +348,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CDFF19A2376DFF000B585A7 /* TodoItemTableViewCell.swift in Sources */,
+				7CD9C2EE2386A05A00B5F54C /* FetchedResultsTableViewController.swift in Sources */,
+				7C9229082387F548009DA3B0 /* HourlyForecastCell.swift in Sources */,
 				7CDFF1982376C2FA00B585A7 /* TodoItemsController.swift in Sources */,
 				7C057E28236AC3DD00746340 /* UserDefaultsViewController.swift in Sources */,
+				7C9229032387F51D009DA3B0 /* NetworkHelper.swift in Sources */,
 				7C057E522375A3DE00746340 /* ColorCollectionViewCell.swift in Sources */,
 				7C057E24236AC3DD00746340 /* AppDelegate.swift in Sources */,
+				7C9229002387F4F7009DA3B0 /* AccuWeatherTemperatureData.swift in Sources */,
 				7C057E3D2374195A00746340 /* TodoItem.swift in Sources */,
 				7C057E4923757DAB00746340 /* BatchUpdate.swift in Sources */,
 				7CD9C2E323855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift in Sources */,
 				7CD9C2EA2385605000B5F54C /* CDTodoListTableViewController.swift in Sources */,
 				7C057E5023758F5300746340 /* TodoListEditViewController.swift in Sources */,
 				7CD9C2E723855D4600B5F54C /* CDTodoList+CoreDataClass.swift in Sources */,
+				7C9228FE2387F4F7009DA3B0 /* AccuWeatherHourlyForecast.swift in Sources */,
 				7CD9C2E823855D4600B5F54C /* CDTodoList+CoreDataProperties.swift in Sources */,
+				7C9228FF2387F4F7009DA3B0 /* AccuWeatherCurrentConditions.swift in Sources */,
 				7CD9C2E423855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift in Sources */,
 				7CDFF19C2376E9F000B585A7 /* CompletionIndicatorView.swift in Sources */,
 				7C057E4523756D3400746340 /* TodoListRealmTableViewController.swift in Sources */,
 				7C057E3F237436E400746340 /* TodoList.swift in Sources */,
+				7C9229092387F548009DA3B0 /* DailyForecastCell.swift in Sources */,
+				7C9229052387F530009DA3B0 /* AccuWeatherAPI.swift in Sources */,
+				7C9228F92387F4DB009DA3B0 /* WeatherViewController.swift in Sources */,
 				7C057E2E236AC3DD00746340 /* Skillbox_m14.xcdatamodeld in Sources */,
 				7CDFF1962376C1C200B585A7 /* TodoItemsRealmTableViewController.swift in Sources */,
 				7C057E4E237588C400746340 /* MasterSplitViewController.swift in Sources */,
 				7C057E4723756E9400746340 /* TodoListsController.swift in Sources */,
 				7C057E3B236AC62E00746340 /* UserData.swift in Sources */,
+				7CD9C2EC23869DED00B5F54C /* CDTodoItemsTableViewController.swift in Sources */,
 				7C057E26236AC3DD00746340 /* SceneDelegate.swift in Sources */,
 				7CDFF1942376BA7A00B585A7 /* HEXColor.swift in Sources */,
+				7C9229012387F4F7009DA3B0 /* AccuWeatherDailyForecast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
