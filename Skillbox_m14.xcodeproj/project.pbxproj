@@ -78,10 +78,10 @@
 		7C9229062387F548009DA3B0 /* HourlyForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyForecastCell.swift; sourceTree = "<group>"; };
 		7C9229072387F548009DA3B0 /* DailyForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyForecastCell.swift; sourceTree = "<group>"; };
 		7C92290A2387F843009DA3B0 /* AccuWeatherPersistantStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccuWeatherPersistantStorage.swift; sourceTree = "<group>"; };
-		7CD9C2E123855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		7CD9C2E223855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		7CD9C2E523855D4600B5F54C /* CDTodoList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoList+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		7CD9C2E623855D4600B5F54C /* CDTodoList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7CD9C2E123855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CDTodoItem+CoreDataClass.swift"; path = "Skillbox_m14/New Group/CDTodoItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		7CD9C2E223855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CDTodoItem+CoreDataProperties.swift"; path = "Skillbox_m14/New Group/CDTodoItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7CD9C2E523855D4600B5F54C /* CDTodoList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CDTodoList+CoreDataClass.swift"; path = "Skillbox_m14/New Group/CDTodoList+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		7CD9C2E623855D4600B5F54C /* CDTodoList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CDTodoList+CoreDataProperties.swift"; path = "Skillbox_m14/New Group/CDTodoList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7CD9C2E92385605000B5F54C /* CDTodoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTodoListTableViewController.swift; sourceTree = "<group>"; };
 		7CD9C2EB23869DED00B5F54C /* CDTodoItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTodoItemsTableViewController.swift; sourceTree = "<group>"; };
 		7CD9C2ED2386A05A00B5F54C /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
@@ -127,10 +127,7 @@
 		7C057E22236AC3DD00746340 /* Skillbox_m14 */ = {
 			isa = PBXGroup;
 			children = (
-				7CD9C2E523855D4600B5F54C /* CDTodoList+CoreDataClass.swift */,
-				7CD9C2E623855D4600B5F54C /* CDTodoList+CoreDataProperties.swift */,
-				7CD9C2E123855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift */,
-				7CD9C2E223855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift */,
+				7C92290C23880A86009DA3B0 /* CoreData */,
 				7CD9C2C8238555CB00B5F54C /* Views */,
 				7C057E4B2375853200746340 /* Models */,
 				7CD9C2C62385558300B5F54C /* Model controllers */,
@@ -183,6 +180,17 @@
 				7CD9C2EB23869DED00B5F54C /* CDTodoItemsTableViewController.swift */,
 			);
 			path = "View controllers";
+			sourceTree = "<group>";
+		};
+		7C92290C23880A86009DA3B0 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7CD9C2E523855D4600B5F54C /* CDTodoList+CoreDataClass.swift */,
+				7CD9C2E623855D4600B5F54C /* CDTodoList+CoreDataProperties.swift */,
+				7CD9C2E123855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift */,
+				7CD9C2E223855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		7CD9C2C62385558300B5F54C /* Model controllers */ = {
