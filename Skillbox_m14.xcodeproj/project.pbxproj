@@ -33,6 +33,7 @@
 		7C9229052387F530009DA3B0 /* AccuWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9229042387F530009DA3B0 /* AccuWeatherAPI.swift */; };
 		7C9229082387F548009DA3B0 /* HourlyForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9229062387F548009DA3B0 /* HourlyForecastCell.swift */; };
 		7C9229092387F548009DA3B0 /* DailyForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9229072387F548009DA3B0 /* DailyForecastCell.swift */; };
+		7C92290B2387F843009DA3B0 /* AccuWeatherPersistantStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C92290A2387F843009DA3B0 /* AccuWeatherPersistantStorage.swift */; };
 		7CD9C2E323855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E123855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift */; };
 		7CD9C2E423855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E223855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift */; };
 		7CD9C2E723855D4600B5F54C /* CDTodoList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9C2E523855D4600B5F54C /* CDTodoList+CoreDataClass.swift */; };
@@ -76,6 +77,7 @@
 		7C9229042387F530009DA3B0 /* AccuWeatherAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccuWeatherAPI.swift; sourceTree = "<group>"; };
 		7C9229062387F548009DA3B0 /* HourlyForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyForecastCell.swift; sourceTree = "<group>"; };
 		7C9229072387F548009DA3B0 /* DailyForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyForecastCell.swift; sourceTree = "<group>"; };
+		7C92290A2387F843009DA3B0 /* AccuWeatherPersistantStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccuWeatherPersistantStorage.swift; sourceTree = "<group>"; };
 		7CD9C2E123855D1B00B5F54C /* CDTodoItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		7CD9C2E223855D1B00B5F54C /* CDTodoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7CD9C2E523855D4600B5F54C /* CDTodoList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTodoList+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				7C9229042387F530009DA3B0 /* AccuWeatherAPI.swift */,
+				7C92290A2387F843009DA3B0 /* AccuWeatherPersistantStorage.swift */,
 				7C9229022387F51D009DA3B0 /* NetworkHelper.swift */,
 				7CDFF1932376BA7A00B585A7 /* HEXColor.swift */,
 			);
@@ -353,6 +356,7 @@
 				7CDFF1982376C2FA00B585A7 /* TodoItemsController.swift in Sources */,
 				7C057E28236AC3DD00746340 /* UserDefaultsViewController.swift in Sources */,
 				7C9229032387F51D009DA3B0 /* NetworkHelper.swift in Sources */,
+				7C92290B2387F843009DA3B0 /* AccuWeatherPersistantStorage.swift in Sources */,
 				7C057E522375A3DE00746340 /* ColorCollectionViewCell.swift in Sources */,
 				7C057E24236AC3DD00746340 /* AppDelegate.swift in Sources */,
 				7C9229002387F4F7009DA3B0 /* AccuWeatherTemperatureData.swift in Sources */,

@@ -22,7 +22,13 @@ class WeatherViewController: UIViewController {
     let networkHelper = NetworkHelper()
 
     // MARK - State
-    var currentWeather: AccuWeatherCurrentConditions? { didSet { updateCurrentWeatherUI() } }
+    var currentWeather: AccuWeatherCurrentConditions? {
+        didSet {
+            updateCurrentWeatherUI()
+            guard let currentWeather = currentWeather else { return }
+            AccuWeatherPersistantStorage.save(currentWeather)
+        }
+    }
     var unit: WeatherUnit = .celsius {
         didSet {
             updateCurrentWeatherUI()
@@ -33,12 +39,16 @@ class WeatherViewController: UIViewController {
     var hourlyForecast: [AccuWeatherHourlyForecast]? {
         didSet {
             updateHourlyForecastUI()
+            guard let hourlyForecast = hourlyForecast else { return }
+            AccuWeatherPersistantStorage.save(hourlyForecast)
         }
     }
     
     var dailyForecast: [AccuWeatherDailyForecast]? {
         didSet {
             updateDailyForecastUI()
+            guard let dailyForecast = dailyForecast else { return }
+            AccuWeatherPersistantStorage.save(dailyForecast)
         }
     }
     
@@ -50,6 +60,10 @@ class WeatherViewController: UIViewController {
         
         hourlyForecastCollectionView.dataSource = self
         dailyForecastTableView.dataSource = self
+        
+        currentWeather = AccuWeatherPersistantStorage.load()
+        hourlyForecast = AccuWeatherPersistantStorage.load()
+        dailyForecast = AccuWeatherPersistantStorage.load()
         
         fetchCurrentWeather()
         fetchHourlyForecast()

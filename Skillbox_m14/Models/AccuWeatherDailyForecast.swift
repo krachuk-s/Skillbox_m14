@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct AccuWeatherDailyForecast {
+struct AccuWeatherDailyForecast: Codable {
     let epochDate: Int
     let iconPhrase: String
     let minTemperature: AccuWeatherTemperatureData
